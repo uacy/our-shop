@@ -97,7 +97,8 @@ public class ShoppingCart extends ListActivity {
 			
 			@Override
 			public void onClick(View v) {
-            	intent2 = new Intent(ShoppingCart.this, ItemsList.class);
+            	
+				intent2 = new Intent(ShoppingCart.this, ItemsList.class);
             	startActivity(intent2);
           
 			}
@@ -111,9 +112,8 @@ public class ShoppingCart extends ListActivity {
           }catch(Exception e){
         	  System.out.println("dute acasa");
           }
-			  
-	
-
 	}
+
+	
 }
 
