@@ -1,5 +1,9 @@
 package com.example.firstpage;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -12,6 +16,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
@@ -24,6 +29,7 @@ public class ItemsList extends ListActivity {
 	 ListView lista;
 	 ArrayAdapter<String> adapter;
 	 String rez;
+	 Button btnreturn;
 	    
 	 protected void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
@@ -83,11 +89,17 @@ public class ItemsList extends ListActivity {
 	            @Override
 	            public void onItemClick(AdapterView<?> adaptor, View arg1, int position,
 	                    long id) {
-	            		Intent intent = new Intent(ItemsList.this, ShoppingCart.class);
-	                	startActivity(intent);
+	            		         			
+	            		
+	            		
+	            		Intent intent2 = new Intent(ItemsList.this, ShoppingCart.class);
+	            		intent2.putExtra("param_a",nume.get(position));
+	            		startActivity(intent2);
 	            		
 	            }
 	       }); 
+	       
+	       
 	      /* System.out.println("Printing nume");System.out.println(nume.get(0));
 	       System.out.println("lungimea: " + nume.size());*/
 	       

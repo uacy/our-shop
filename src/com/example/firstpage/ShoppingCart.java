@@ -28,14 +28,14 @@ public class ShoppingCart extends ListActivity {
     ListView lista;
     ArrayAdapter<String> adapter;
 	Bundle b = new Bundle();
-
-
+	String key; String value;
+	Intent intent2;
     
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cart);
         lista = (ListView) findViewById(android.R.id.list);
-
+        
         nume = new ArrayList<String>();
         
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nume);
@@ -97,16 +97,23 @@ public class ShoppingCart extends ListActivity {
 			
 			@Override
 			public void onClick(View v) {
-            	Intent intent2 = new Intent(ShoppingCart.this, ItemsList.class);
+            	intent2 = new Intent(ShoppingCart.this, ItemsList.class);
             	startActivity(intent2);
-  
-				
+          
 			}
 		});
-
-
-			}  
+          try{
+      	Intent search = getIntent();
+        String nume2 = search.getExtras().getString("param_a");
+      	System.out.println(nume2);
+      	nume.add(nume2);
+      	adapter.notifyDataSetChanged();
+          }catch(Exception e){
+        	  System.out.println("dute acasa");
+          }
+			  
 	
 
 	}
+}
 
